@@ -45,6 +45,29 @@ canvas{display:block;width:100%;height:auto;touch-action:none}
 .tg{background:#229ED9}
 .tt{background:#111}
 .soc a:active{transform:translate(3px,3px);box-shadow:2px 2px 0 #FF2D55}
+.donate{margin-top:28px;background:linear-gradient(165deg,#1a1230 0%,#12162A 40%,#0d1a2e 100%);border:3px solid var(--gold);border-radius:16px;box-shadow:8px 8px 0 #FF2D55,0 0 40px rgba(255,199,0,.15);padding:22px 16px 20px;text-align:center;position:relative;overflow:hidden}
+.donate:before{content:"★";position:absolute;font-size:120px;color:rgba(255,199,0,.06);top:-20px;right:-10px;pointer-events:none}
+.donate h2{margin:0 0 6px;font-size:22px;font-weight:400;color:var(--gold);text-shadow:2px 2px 0 #FF2D55}
+.donate .sub-d{margin:0 0 16px;font-size:13px;opacity:.8;font-family:system-ui,sans-serif;line-height:1.4}
+.donate .pay-block{background:rgba(0,0,0,.35);border:2px solid rgba(255,45,85,.5);border-radius:12px;padding:14px 12px;margin-bottom:14px}
+.donate .pay-label{font-size:12px;opacity:.7;margin-bottom:6px;font-family:system-ui,sans-serif;text-transform:uppercase;letter-spacing:1px}
+.donate .card-num{font-size:19px;letter-spacing:1.2px;color:var(--gold);background:#0B1030;border:2px solid #FF2D55;border-radius:10px;padding:11px 8px;margin:0 0 10px;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;user-select:all;word-break:break-all}
+.donate .copy-btn{width:100%;margin-bottom:6px;font-size:15px;padding:11px}
+.donate .copied{color:#5CE1FF;font-size:13px;min-height:18px;font-family:system-ui,sans-serif}
+.donate .shame{margin:18px 0 10px;padding:12px;background:rgba(255,45,85,.12);border:2px dashed #FF2D55;border-radius:10px;font-size:13px;line-height:1.45;font-family:system-ui,sans-serif}
+.donate .shame strong{color:var(--gold)}
+.donate .unlocks{margin-top:16px;text-align:left}
+.donate .unlocks h3{margin:0 0 10px;font-size:16px;font-weight:400;text-align:center;color:var(--gold)}
+.donate .skin-row{display:flex;align-items:center;gap:10px;background:rgba(0,0,0,.3);border:2px solid rgba(255,45,85,.35);border-radius:10px;padding:10px;margin-bottom:8px}
+.donate .skin-preview{width:44px;height:44px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:22px;border:2px solid #FF2D55}
+.donate .skin-info{flex:1;min-width:0}
+.donate .skin-info b{display:block;font-size:14px;margin-bottom:2px}
+.donate .skin-info span{font-size:11px;opacity:.7;font-family:system-ui,sans-serif}
+.donate .skin-btn{font-size:12px;padding:8px 10px;white-space:nowrap;flex-shrink:0}
+.donate .skin-btn.owned{background:#1B2A4E;color:#5CE1FF;border-color:#5CE1FF;box-shadow:2px 2px 0 #5CE1FF;cursor:default}
+.donate .skin-btn.owned:active{transform:none;box-shadow:2px 2px 0 #5CE1FF}
+.donate .vip-badge{display:inline-block;background:var(--gold);color:#14182B;font-size:11px;padding:3px 8px;border-radius:999px;margin-top:8px;font-weight:700}
+.donate .status{margin-top:12px;font-size:13px;font-family:system-ui,sans-serif;min-height:20px}
 footer{text-align:center;font-size:13px;opacity:.6;padding:0 0 24px;font-family:system-ui,sans-serif}
 .tags{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:16px}
 .tags span{border:2px solid #FF2D55;color:#FFC700;padding:6px 12px;border-radius:999px;font-size:14px;background:rgba(255,45,85,.14);animation:tg 2.4s ease-in-out infinite}
@@ -124,6 +147,67 @@ h2.g2{margin-top:30px}
 </tbody>
 </table>
 <button class="btn secondary" id="clearRecords" style="margin-top:12px;width:100%">Сбросить рекорды</button>
+</section>
+
+<section class="donate">
+<h2>★ Донат Кобилджону ★</h2>
+<p class="sub-d">Любая сумма = уважение + эксклюзивная косметика.<br>Без доната косметику брать <strong>стыдно</strong>.</p>
+
+<div class="pay-block">
+  <div class="pay-label">Карта Monobank</div>
+  <div class="card-num" id="cardNum">4441 1111 6051 4067</div>
+  <button class="btn copy-btn" id="copyCard">📋 Скопировать номер карты</button>
+  <div class="copied" id="copiedMsg"></div>
+</div>
+
+<div class="shame">
+  <strong>Правила чести:</strong><br>
+  1. Задонатил → жми «Я поддержал» и забирай скин.<br>
+  2. Не задонатил, но нажал — ты <strong>крыса</strong>. Коч это видит.<br>
+  3. Настоящие братаны донатят хотя бы на шаурму.
+</div>
+
+<div class="unlocks">
+  <h3>Эксклюзив для поддержавших</h3>
+
+  <div class="skin-row" data-skin="gold">
+    <div class="skin-preview" style="background:linear-gradient(135deg,#FFC700,#B88A00)">🚗</div>
+    <div class="skin-info">
+      <b>Золотая тачка</b>
+      <span>Кобилджон на полностью золотом авто</span>
+    </div>
+    <button class="btn secondary skin-btn" data-unlock="gold">Получить</button>
+  </div>
+
+  <div class="skin-row" data-skin="neon">
+    <div class="skin-preview" style="background:linear-gradient(135deg,#5CE1FF,#1F4E9E)">💜</div>
+    <div class="skin-info">
+      <b>Неоновый дрифт</b>
+      <span>Синий неон + след за машиной</span>
+    </div>
+    <button class="btn secondary skin-btn" data-unlock="neon">Получить</button>
+  </div>
+
+  <div class="skin-row" data-skin="police">
+    <div class="skin-preview" style="background:linear-gradient(135deg,#E53935,#1E6BFF)">🚨</div>
+    <div class="skin-info">
+      <b>Мент-стиль</b>
+      <span>Играешь за полицейскую тачку</span>
+    </div>
+    <button class="btn secondary skin-btn" data-unlock="police">Получить</button>
+  </div>
+
+  <div class="skin-row" data-skin="vip">
+    <div class="skin-preview" style="background:linear-gradient(135deg,#FF2D55,#FFC700)">👑</div>
+    <div class="skin-info">
+      <b>VIP-статус</b>
+      <span>Бейдж + особый эффект в меню</span>
+    </div>
+    <button class="btn secondary skin-btn" data-unlock="vip">Получить</button>
+  </div>
+</div>
+
+<div class="status" id="donateStatus"></div>
 </section>
 
 <div class="soc">
@@ -218,6 +302,117 @@ document.getElementById('clearRecords').onclick=function(){
   }
 };
 
+/* ===== Donate + honor unlocks ===== */
+(function(){
+  var SKINS=['gold','neon','police','vip'];
+  var owned={};
+  try{owned=JSON.parse(localStorage.getItem('kochskins')||'{}');}catch(e){}
+  var activeSkin=localStorage.getItem('kochActiveSkin')||'default';
+
+  function save(){try{localStorage.setItem('kochskins',JSON.stringify(owned));}catch(e){}}
+  function setActive(s){activeSkin=s;try{localStorage.setItem('kochActiveSkin',s);}catch(e){} window.__kochSkin=s;}
+
+  // expose for games
+  window.__kochSkin=activeSkin;
+  window.__kochOwned=owned;
+
+  function refreshUI(){
+    SKINS.forEach(function(id){
+      var btn=document.querySelector('.skin-btn[data-unlock="'+id+'"]');
+      if(!btn)return;
+      if(owned[id]){
+        btn.textContent=activeSkin===id?'✓ Выбрано':'Выбрать';
+        btn.classList.add('owned');
+        btn.onclick=function(){setActive(id);refreshUI();status('Скин «'+id+'» активирован. Погнали!');};
+      }else{
+        btn.textContent='Получить';
+        btn.classList.remove('owned');
+        btn.onclick=function(){tryUnlock(id);};
+      }
+    });
+    var st=document.getElementById('donateStatus');
+    if(owned.vip){
+      if(!document.getElementById('vipBadge')){
+        var b=document.createElement('div');
+        b.id='vipBadge';b.className='vip-badge';b.textContent='👑 VIP БРАТАН';
+        st.parentNode.insertBefore(b,st);
+      }
+    }
+  }
+
+  function status(t){
+    var el=document.getElementById('donateStatus');
+    el.textContent=t;
+    el.style.color='#5CE1FF';
+    setTimeout(function(){el.textContent='';},3500);
+  }
+
+  function tryUnlock(id){
+    var names={gold:'Золотая тачка',neon:'Неоновый дрифт',police:'Мент-стиль',vip:'VIP-статус'};
+    var shame=[
+      'Ты точно задонатил?\n\nЕсли да — жми ОК.\nЕсли нет — тебе будет стыдно всю жизнь.',
+      'Коч смотрит на тебя прямо сейчас.\n\nЗадонатил по-честному?',
+      'Крысы нажимают «ОК» без доната.\nБратаны — только после перевода.\n\nТы кто?'
+    ];
+    var msg=shame[Math.floor(Math.random()*shame.length)];
+    if(!confirm(msg+'\n\nРазблокировать «'+names[id]+'»?')){
+      status('Правильный выбор. Сначала донат ★');
+      return;
+    }
+    // second confirm for extra guilt
+    if(!confirm('Последний шанс.\n\nЯ клянусь, что реально поддержал проект.')){
+      status('Честь важнее скина. Респект.');
+      return;
+    }
+    owned[id]=true;
+    save();
+    setActive(id);
+    refreshUI();
+    status('🎉 «'+names[id]+'» разблокирован! Спасибо, что не крыса.');
+    try{beep(660,.15);setTimeout(function(){beep(880,.2);},160);}catch(e){}
+  }
+
+  // copy card
+  var btn=document.getElementById('copyCard');
+  var msg=document.getElementById('copiedMsg');
+  var num='4441111160514067';
+  btn.onclick=function(){
+    function ok(){msg.textContent='Скопировано! Теперь переведи и возвращайся за скином ★';setTimeout(function(){msg.textContent='';},3200);}
+    function fail(){msg.textContent='Не вышло — выдели номер вручную';}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(num).then(ok).catch(function(){
+        try{
+          var ta=document.createElement('textarea');ta.value=num;document.body.appendChild(ta);ta.select();
+          document.execCommand('copy');document.body.removeChild(ta);ok();
+        }catch(e){fail();}
+      });
+    }else{
+      try{
+        var ta=document.createElement('textarea');ta.value=num;document.body.appendChild(ta);ta.select();
+        document.execCommand('copy');document.body.removeChild(ta);ok();
+      }catch(e){fail();}
+    }
+  };
+
+  // делегирование кликов по скинам (на случай перерисовки)
+  var unlocksRoot=document.querySelector('.donate .unlocks');
+  if(unlocksRoot){
+    unlocksRoot.addEventListener('click',function(e){
+      var b=e.target.closest('.skin-btn');
+      if(!b)return;
+      var id=b.getAttribute('data-unlock');
+      if(!id)return;
+      if(owned[id]){
+        setActive(id);refreshUI();status('Скин «'+id+'» активирован. Погнали!');
+      }else{
+        tryUnlock(id);
+      }
+    });
+  }
+
+  refreshUI();
+})();
+
 /* ===== Game 1 ===== */
 var cv=document.getElementById('g'),c=cv.getContext('2d'),W=360,H=540;
 cv.width=W*2;cv.height=H*2;c.scale(2,2);
@@ -262,6 +457,10 @@ function togglePause1(){
 }
 pauseBtn1.onclick=togglePause1;
 btn.onclick=start;
+// надёжный обработчик: даже после замены HTML кнопки «Играть / Ещё раз»
+ov.addEventListener('click',function(e){
+  if(e.target && (e.target.id==='go' || e.target.closest('#go'))){ start(); }
+});
 
 function upd(dt){
   if(dir)tx=Math.max(30,Math.min(W-30,tx+dir*320*dt));
@@ -350,6 +549,9 @@ function togglePause2(){
 }
 pauseBtn2.onclick=togglePause2;
 document.getElementById('go2').onclick=start;
+ov.addEventListener('click',function(e){
+  if(e.target && (e.target.id==='go2' || e.target.closest('#go2'))){ start(); }
+});
 addEventListener('keydown',function(e){
   if((e.key==='p'||e.key==='P'||e.key===' ')&&(st==='play'||st==='pause')){e.preventDefault();togglePause2();}
 });
@@ -461,33 +663,69 @@ function togglePause3(){
 }
 pauseBtn3.onclick=togglePause3;
 document.getElementById('go3').onclick=start;
+ov.addEventListener('click',function(e){
+  if(e.target && (e.target.id==='go3' || e.target.closest('#go3'))){ start(); }
+});
 
 function rr(x,y,w,h,r){c.beginPath();c.moveTo(x+r,y);c.arcTo(x+w,y,x+w,y+h,r);c.arcTo(x+w,y+h,x,y+h,r);c.arcTo(x,y+h,x,y,r);c.arcTo(x,y,x+w,y,r);c.closePath();}
 
 function drawCar(x,y,isPlayer){
+  var skin=isPlayer?(window.__kochSkin||'default'):'enemy';
+  var bodyCol, strokeCol, roofCol, lightCol;
+  if(!isPlayer){
+    bodyCol='#E53935';strokeCol='#8B0000';roofCol='#333';lightCol='#FF0';
+  }else if(skin==='gold'){
+    bodyCol='#FFC700';strokeCol='#B88A00';roofCol='#FFF1A8';lightCol='#fff';
+  }else if(skin==='neon'){
+    bodyCol='#1a1a3a';strokeCol='#5CE1FF';roofCol='#0d2a4a';lightCol='#5CE1FF';
+  }else if(skin==='police'){
+    bodyCol='#f5f5f5';strokeCol='#333';roofCol='#1E6BFF';lightCol='#fff';
+  }else{
+    bodyCol='#FFC700';strokeCol='#B88A00';roofCol='#1F4E9E';lightCol='#fff';
+  }
+  // neon trail
+  if(isPlayer&&skin==='neon'){
+    c.fillStyle='rgba(92,225,255,0.25)';
+    c.fillRect(x-8,y+28,16,18);
+    c.fillStyle='rgba(92,225,255,0.12)';
+    c.fillRect(x-6,y+46,12,14);
+  }
   // body
-  c.fillStyle=isPlayer?'#FFC700':'#E53935';
+  c.fillStyle=bodyCol;
   rr(x-18,y-28,36,52,6);c.fill();
-  c.strokeStyle=isPlayer?'#B88A00':'#8B0000';c.lineWidth=2;c.stroke();
+  c.strokeStyle=strokeCol;c.lineWidth=2;c.stroke();
   // roof
-  c.fillStyle=isPlayer?'#1F4E9E':'#333';
+  c.fillStyle=roofCol;
   rr(x-12,y-18,24,22,4);c.fill();
   // windows
-  c.fillStyle='#87CEEB';c.fillRect(x-9,y-15,18,8);
+  c.fillStyle=skin==='neon'?'#a0f0ff':'#87CEEB';c.fillRect(x-9,y-15,18,8);
   // wheels
   c.fillStyle='#111';
   c.fillRect(x-20,y-22,6,12);c.fillRect(x+14,y-22,6,12);
   c.fillRect(x-20,y+12,6,12);c.fillRect(x+14,y+12,6,12);
   // lights
-  c.fillStyle=isPlayer?'#fff':'#FF0';
+  c.fillStyle=lightCol;
   c.fillRect(x-14,y+22,8,4);c.fillRect(x+6,y+22,8,4);
   if(isPlayer){
-    // face / kobiljon vibe
-    c.fillStyle='#F2C9A0';c.beginPath();c.arc(x,y-8,8,0,7);c.fill();
-    c.fillStyle='#000';c.fillRect(x-5,y-10,3,2);c.fillRect(x+2,y-10,3,2);
-    c.fillStyle='#E53935';c.fillRect(x-2,y-5,4,2);
+    if(skin==='police'){
+      c.fillStyle=Math.sin(Date.now()/100)>0?'#E53935':'#1E6BFF';
+      c.beginPath();c.arc(x,y-24,7,0,7);c.fill();
+    }else if(skin==='vip'){
+      c.fillStyle='#FFC700';c.font='16px system-ui';c.textAlign='center';
+      c.fillText('👑',x,y-30);
+      c.fillStyle='#F2C9A0';c.beginPath();c.arc(x,y-8,8,0,7);c.fill();
+      c.fillStyle='#000';c.fillRect(x-5,y-10,3,2);c.fillRect(x+2,y-10,3,2);
+      c.fillStyle='#E53935';c.fillRect(x-2,y-5,4,2);
+    }else{
+      c.fillStyle='#F2C9A0';c.beginPath();c.arc(x,y-8,8,0,7);c.fill();
+      c.fillStyle='#000';c.fillRect(x-5,y-10,3,2);c.fillRect(x+2,y-10,3,2);
+      c.fillStyle='#E53935';c.fillRect(x-2,y-5,4,2);
+      if(skin==='gold'){
+        c.strokeStyle='rgba(255,241,168,0.8)';c.lineWidth=2;
+        c.beginPath();c.arc(x,y+2,22,0,7);c.stroke();
+      }
+    }
   }else{
-    // police light
     c.fillStyle=Math.sin(Date.now()/120)>0?'#E53935':'#1E6BFF';
     c.beginPath();c.arc(x,y-24,6,0,7);c.fill();
   }
@@ -619,7 +857,7 @@ requestAnimationFrame(loop);
 
   // Service Worker: кэширует саму страницу
   var swCode=`
-    const CACHE='koch-brat-v1';
+    const CACHE='koch-brat-v2';
     self.addEventListener('install',e=>{
       e.waitUntil(caches.open(CACHE).then(c=>c.addAll(['./','./index.html']).catch(()=>{})));
       self.skipWaiting();
